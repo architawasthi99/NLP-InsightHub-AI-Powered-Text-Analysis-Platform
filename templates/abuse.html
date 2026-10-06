@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Abuse Detection | NLP InsightHub</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/abuse.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            NLP <span>InsightHub</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/profile">Profile</a>
+
+            <a href="/ner">NER</a>
+
+            <a href="/sentiment">Sentiment</a>
+
+            <a href="/abuse" class="active">Abuse Detection</a>
+
+            <a href="/" class="logout">Logout</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Main Content -->
+
+    <main class="abuse-container">
+
+        <!-- Page Header -->
+
+        <section class="page-header">
+
+            <h1>Abuse Detection</h1>
+
+            <p>
+                Analyze text to identify potentially abusive,
+                offensive or inappropriate language.
+            </p>
+
+        </section>
+
+
+        <!-- Analyzer Card -->
+
+        <section class="analyzer-card">
+
+            <div class="input-section">
+
+                <div class="section-title">
+
+                    <h2>Enter Your Text</h2>
+
+                    <span id="characterCount">
+                        0 characters
+                    </span>
+
+                </div>
+
+
+                <textarea
+                    id="textInput"
+                    maxlength="5000"
+                    placeholder="Enter or paste your text here..."
+                ></textarea>
+
+
+                <div class="input-footer">
+
+                    <span>
+                        Maximum 5000 characters
+                    </span>
+
+                    <button id="clearBtn">
+                        Clear
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Analyze Button -->
+
+            <button id="analyzeBtn">
+
+                <span id="buttonText">
+                    Check Text
+                </span>
+
+                <span id="loader" class="loader"></span>
+
+            </button>
+
+
+            <!-- Result Section -->
+
+            <div class="result-section" id="resultSection">
+
+                <div class="result-header">
+
+                    <div>
+
+                        <h2>Detection Result</h2>
+
+                        <p>
+                            Analysis result will appear here.
+                        </p>
+
+                    </div>
+
+                    <span class="result-status">
+                        Analysis Result
+                    </span>
+
+                </div>
+
+
+                <!-- Detection Result -->
+
+                <div class="detection-result">
+
+                    <div class="detection-icon" id="detectionIcon">
+                        —
+                    </div>
+
+                    <div class="detection-info">
+
+                        <h3 id="detectionLabel">
+                            Result
+                        </h3>
+
+                        <p id="detectionDescription">
+                            Abuse detection result will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Confidence -->
+
+                <div class="confidence-section">
+
+                    <div class="confidence-header">
+
+                        <span>
+                            Confidence Score
+                        </span>
+
+                        <span id="confidenceValue">
+                            —
+                        </span>
+
+                    </div>
+
+                    <div class="confidence-bar">
+
+                        <div
+                            class="confidence-progress"
+                            id="confidenceProgress"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Analyzed Text -->
+
+                <div class="analyzed-text">
+
+                    <h3>Analyzed Text</h3>
+
+                    <p id="analyzedText">
+                        Your text will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Detection Categories -->
+
+        <section class="detection-types">
+
+            <h2>Detection Categories</h2>
+
+            <div class="detection-grid">
+
+
+                <!-- Safe -->
+
+                <div class="detection-card">
+
+                    <div class="detection-card-icon safe-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h3>Safe</h3>
+
+                        <p>
+                            Text that does not contain
+                            abusive or offensive language.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Offensive -->
+
+                <div class="detection-card">
+
+                    <div class="detection-card-icon offensive-icon">
+                        !
+                    </div>
+
+                    <div>
+
+                        <h3>Offensive</h3>
+
+                        <p>
+                            Text containing potentially
+                            offensive or inappropriate language.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Abusive -->
+
+                <div class="detection-card">
+
+                    <div class="detection-card-icon abusive-icon">
+                        ×
+                    </div>
+
+                    <div>
+
+                        <h3>Abusive</h3>
+
+                        <p>
+                            Text containing potentially
+                            abusive or harmful language.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="{{ url_for('static', filename='js/abuse.js') }}"></script>
+
+</body>
+
+</html>

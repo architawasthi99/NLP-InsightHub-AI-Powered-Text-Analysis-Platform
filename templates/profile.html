@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile | NLP InsightHub</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            NLP <span>InsightHub</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="/profile" class="active">Profile</a>
+            <a href="/ner">NER</a>
+            <a href="/sentiment">Sentiment</a>
+            <a href="/abuse">Abuse Detection</a>
+            <a href="/" class="logout">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Main Content -->
+
+    <main class="dashboard">
+
+        <!-- Welcome Section -->
+
+        <section class="welcome-section">
+
+            <div>
+                <h1>Welcome to NLP InsightHub 👋</h1>
+
+                <p>
+                    AI-powered tools for analyzing and understanding text.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- Profile Card -->
+
+        <section class="profile-card">
+
+            <div class="profile-header">
+
+                <div class="profile-avatar" id="profileAvatar">
+                    A
+                </div>
+
+                <div class="profile-info">
+
+                    <h2 id="profileName">
+                        Archit Awasthi
+                    </h2>
+
+                    <p id="profileEmail">
+                        archit@example.com
+                    </p>
+
+                    <span class="user-badge">
+                        NLP User
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-details">
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+                        Full Name
+                    </span>
+
+                    <span id="detailName">
+                        Archit Awasthi
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+                        Email
+                    </span>
+
+                    <span id="detailEmail">
+                        archit@example.com
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+                        Account Type
+                    </span>
+
+                    <span>
+                        Student
+                    </span>
+
+                </div>
+
+            </div>
+
+            <button id="editProfileBtn">
+                Edit Profile
+            </button>
+
+        </section>
+
+
+        <!-- NLP Tools -->
+
+        <section class="tools-section">
+
+            <div class="section-heading">
+
+                <h2>NLP Tools</h2>
+
+                <p>
+                    Choose a tool to analyze your text.
+                </p>
+
+            </div>
+
+
+            <div class="tools-grid">
+
+
+                <!-- NER -->
+
+                <div class="tool-card">
+
+                    <div class="tool-icon">
+                        🔎
+                    </div>
+
+                    <h3>Named Entity Recognition</h3>
+
+                    <p>
+                        Identify people, organizations, locations,
+                        dates and other entities from text.
+                    </p>
+
+                    <a href="/ner">
+                        Try NER →
+                    </a>
+
+                </div>
+
+
+                <!-- Sentiment -->
+
+                <div class="tool-card">
+
+                    <div class="tool-icon">
+                        😊
+                    </div>
+
+                    <h3>Sentiment Analysis</h3>
+
+                    <p>
+                        Analyze whether the given text expresses
+                        positive, negative or neutral sentiment.
+                    </p>
+
+                    <a href="/sentiment">
+                        Analyze Sentiment →
+                    </a>
+
+                </div>
+
+
+                <!-- Abuse Detection -->
+
+                <div class="tool-card">
+
+                    <div class="tool-icon">
+                        🛡️
+                    </div>
+
+                    <h3>Abuse Detection</h3>
+
+                    <p>
+                        Detect abusive, offensive or inappropriate
+                        language in text.
+                    </p>
+
+                    <a href="/abuse">
+                        Check Text →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Statistics -->
+
+        <section class="stats-section">
+
+            <h2>Your Activity</h2>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <h3 id="analysisCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Total Analyses
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3 id="nerCount">
+                        0
+                    </h3>
+
+                    <p>
+                        NER Analyses
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3 id="sentimentCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Sentiment Analyses
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3 id="abuseCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Abuse Checks
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Edit Profile Modal -->
+
+    <div class="modal" id="editModal">
+
+        <div class="modal-content">
+
+            <span class="close-btn" id="closeModal">
+                &times;
+            </span>
+
+            <h2>Edit Profile</h2>
+
+            <form id="editProfileForm">
+
+                <div class="form-group">
+
+                    <label for="editName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editName"
+                        placeholder="Enter your name"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="editEmail"
+                        placeholder="Enter your email"
+                    >
+
+                </div>
+
+
+                <button type="submit">
+                    Save Changes
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+
+</body>
+
+</html>

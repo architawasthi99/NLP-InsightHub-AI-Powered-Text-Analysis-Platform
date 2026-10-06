@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sentiment Analysis | NLP InsightHub</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sentiment.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            NLP <span>InsightHub</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/profile">Profile</a>
+
+            <a href="/ner">NER</a>
+
+            <a href="/sentiment" class="active">Sentiment</a>
+
+            <a href="/abuse">Abuse Detection</a>
+
+            <a href="/" class="logout">Logout</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Main Content -->
+
+    <main class="sentiment-container">
+
+        <!-- Page Header -->
+
+        <section class="page-header">
+
+            <h1>Sentiment Analysis</h1>
+
+            <p>
+                Analyze the emotional tone of your text and understand
+                whether it expresses positive, negative or neutral sentiment.
+            </p>
+
+        </section>
+
+
+        <!-- Analyzer Card -->
+
+        <section class="analyzer-card">
+
+            <div class="input-section">
+
+                <div class="section-title">
+
+                    <h2>Enter Your Text</h2>
+
+                    <span id="characterCount">
+                        0 characters
+                    </span>
+
+                </div>
+
+
+                <textarea
+                    id="textInput"
+                    maxlength="5000"
+                    placeholder="Enter or paste your text here..."
+                ></textarea>
+
+
+                <div class="input-footer">
+
+                    <span>
+                        Maximum 5000 characters
+                    </span>
+
+                    <button id="clearBtn">
+                        Clear
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Analyze Button -->
+
+            <button id="analyzeBtn">
+
+                <span id="buttonText">
+                    Analyze Sentiment
+                </span>
+
+                <span id="loader" class="loader"></span>
+
+            </button>
+
+
+            <!-- Result Section -->
+
+            <div class="result-section" id="resultSection">
+
+                <div class="result-header">
+
+                    <h2>Sentiment Result</h2>
+
+                    <span class="result-status">
+                        Analysis Result
+                    </span>
+
+                </div>
+
+
+                <div class="sentiment-result">
+
+                    <div class="sentiment-icon" id="sentimentIcon">
+                        —
+                    </div>
+
+                    <div class="sentiment-info">
+
+                        <h3 id="sentimentLabel">
+                            Result
+                        </h3>
+
+                        <p id="sentimentDescription">
+                            Sentiment analysis result will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Sentiment Score -->
+
+                <div class="score-section">
+
+                    <div class="score-header">
+
+                        <span>
+                            Sentiment Score
+                        </span>
+
+                        <span id="scoreValue">
+                            —
+                        </span>
+
+                    </div>
+
+                    <div class="score-bar">
+
+                        <div
+                            class="score-progress"
+                            id="scoreProgress"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Analyzed Text -->
+
+                <div class="analyzed-text">
+
+                    <h3>Analyzed Text</h3>
+
+                    <p id="analyzedText">
+                        Your text will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Sentiment Types -->
+
+        <section class="sentiment-types">
+
+            <h2>Sentiment Categories</h2>
+
+            <div class="sentiment-grid">
+
+
+                <div class="sentiment-card">
+
+                    <div class="sentiment-card-icon positive-icon">
+                        +
+                    </div>
+
+                    <div>
+
+                        <h3>Positive</h3>
+
+                        <p>
+                            Text expressing happiness,
+                            satisfaction or positive emotions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="sentiment-card">
+
+                    <div class="sentiment-card-icon neutral-icon">
+                        =
+                    </div>
+
+                    <div>
+
+                        <h3>Neutral</h3>
+
+                        <p>
+                            Text with an objective or
+                            neutral emotional tone.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="sentiment-card">
+
+                    <div class="sentiment-card-icon negative-icon">
+                        −
+                    </div>
+
+                    <div>
+
+                        <h3>Negative</h3>
+
+                        <p>
+                            Text expressing dissatisfaction,
+                            sadness or negative emotions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="{{ url_for('static', filename='js/sentiment.js') }}"></script>
+
+</body>
+
+</html>

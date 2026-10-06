@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register | NLP InsightHub</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+</head>
+
+<body>
+
+    <div class="register-container">
+
+        <div class="logo-section">
+            <h1>NLP <span>InsightHub</span></h1>
+            <p>Create your account</p>
+        </div>
+
+        <form id="registerForm" action="/register" method="POST">
+
+            <!-- Full Name -->
+            <div class="form-group">
+                <label for="name">Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+                <small id="nameError"></small>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <small id="emailError"></small>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a password"
+                    required
+                >
+
+                <small id="passwordError"></small>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="Confirm your password"
+                    required
+                >
+
+                <small id="confirmPasswordError"></small>
+            </div>
+
+            <!-- Terms -->
+            <div class="terms">
+                <input type="checkbox" id="terms" name="terms">
+
+                <label for="terms">
+                    I agree to the Terms & Conditions
+                </label>
+            </div>
+
+            <small id="termsError"></small>
+
+            <button type="submit" id="registerBtn">
+                Create Account
+            </button>
+
+        </form>
+
+        <div class="login-link">
+            <p>
+                Already have an account?
+                <a href="/">Login</a>
+            </p>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+
+</body>
+
+</html>

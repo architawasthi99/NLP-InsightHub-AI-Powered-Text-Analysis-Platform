@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NER | NLP InsightHub</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ner.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            NLP <span>InsightHub</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/profile">Profile</a>
+
+            <a href="/ner" class="active">NER</a>
+
+            <a href="/sentiment">Sentiment</a>
+
+            <a href="/abuse">Abuse Detection</a>
+
+            <a href="/" class="logout">Logout</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Main Content -->
+
+    <main class="ner-container">
+
+        <!-- Page Header -->
+
+        <section class="page-header">
+
+            <h1>Named Entity Recognition</h1>
+
+            <p>
+                Identify important entities such as people, organizations,
+                locations, dates and more from your text.
+            </p>
+
+        </section>
+
+
+        <!-- Analyzer -->
+
+        <section class="analyzer-card">
+
+            <div class="input-section">
+
+                <div class="section-title">
+
+                    <h2>Enter Your Text</h2>
+
+                    <span id="characterCount">
+                        0 characters
+                    </span>
+
+                </div>
+
+                <textarea
+                    id="textInput"
+                    placeholder="Enter or paste your text here..."
+                    maxlength="5000"
+                ></textarea>
+
+                <div class="input-footer">
+
+                    <span>
+                        Maximum 5000 characters
+                    </span>
+
+                    <button id="clearBtn">
+                        Clear
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Analyze Button -->
+
+            <button id="analyzeBtn">
+
+                <span id="buttonText">
+                    Analyze Text
+                </span>
+
+                <span id="loader" class="loader"></span>
+
+            </button>
+
+
+            <!-- Results -->
+
+            <div class="results-section" id="resultsSection">
+
+                <div class="results-header">
+
+                    <div>
+                        <h2>Detected Entities</h2>
+
+                        <p>
+                            Entities identified in your text
+                        </p>
+                    </div>
+
+                    <span id="entityCount" class="entity-count">
+                        0 entities
+                    </span>
+
+                </div>
+
+
+                <!-- Highlighted Text -->
+
+                <div class="highlight-box">
+
+                    <h3>Analyzed Text</h3>
+
+                    <div id="highlightedText">
+                        Your analyzed text will appear here.
+                    </div>
+
+                </div>
+
+
+                <!-- Entity Table -->
+
+                <div class="entity-table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Entity</th>
+                                <th>Type</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="entityTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Entity Types -->
+
+        <section class="entity-types">
+
+            <h2>Supported Entity Types</h2>
+
+            <div class="entity-grid">
+
+                <div class="entity-card">
+                    <span class="entity-symbol person">
+                        PER
+                    </span>
+
+                    <div>
+                        <h3>Person</h3>
+                        <p>Names of people</p>
+                    </div>
+                </div>
+
+
+                <div class="entity-card">
+                    <span class="entity-symbol organization">
+                        ORG
+                    </span>
+
+                    <div>
+                        <h3>Organization</h3>
+                        <p>Companies and organizations</p>
+                    </div>
+                </div>
+
+
+                <div class="entity-card">
+                    <span class="entity-symbol location">
+                        LOC
+                    </span>
+
+                    <div>
+                        <h3>Location</h3>
+                        <p>Places and geographical locations</p>
+                    </div>
+                </div>
+
+
+                <div class="entity-card">
+                    <span class="entity-symbol date">
+                        DATE
+                    </span>
+
+                    <div>
+                        <h3>Date</h3>
+                        <p>Dates and time expressions</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="{{ url_for('static', filename='js/ner.js') }}"></script>
+
+</body>
+
+</html>
